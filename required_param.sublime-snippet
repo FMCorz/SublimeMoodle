@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[required_param('${1:id}', PARAM_${2:INT})$0]]></content>
+    <tabTrigger>required_param</tabTrigger>
+    <scope>source.php</scope>
+    <description>required_param()</description>
+</snippet>

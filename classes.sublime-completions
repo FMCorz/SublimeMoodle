@@ -1,0 +1,23 @@
+{
+    "scope": "source.php",
+    "completions":
+    [
+        // Static calls.
+        { "trigger": "html_writer", "contents": "html_writer::$0" },
+        { "trigger": "textlib", "contents": "textlib::$0" },
+        { "trigger": "collatorlib", "contents": "collatorlib::$0" },
+        { "trigger": "context_system-instance", "contents": "context_system::instance()$0" },
+        { "trigger": "context_user-instance", "contents": "context_user::instance(${1:\\$USER->id})$0" },
+        { "trigger": "context_coursecat-instance", "contents": "context_coursecat::instance(${1:\\$catid})$0" },
+        { "trigger": "context_course-instace", "contents": "context_course::instance(${1:\\$courseid})$0" },
+        { "trigger": "context_module-instance", "contents": "context_module::instance(${1:\\$cmid})$0" },
+        { "trigger": "context_block-instance", "contents": "context_block::instance(${1:\\$blockid})$0" },
+
+        // Non-static calls.
+        "DB",
+        "CFG",
+        "OUTPUT",
+        "PAGE",
+        "SESSION"
+    ]
+}

@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[set_user_preference('${1:name}', ${2:\$value}${3:, ${4:\$USER}})$0]]></content>
+    <tabTrigger>set_user_preference</tabTrigger>
+    <scope>source.php</scope>
+    <description>set_user_preference()</description>
+</snippet>

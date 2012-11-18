@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[\$DB->insert_record('${1:table}', \$${2:record}${3:, ${4:returnid}${5:, ${6:bulk}}})$0]]></content>
+    <tabTrigger>insert_record</tabTrigger>
+    <scope>source.php</scope>
+    <description>$DB->insert_record()</description>
+</snippet>

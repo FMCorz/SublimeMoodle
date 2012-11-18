@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[\$DB->count_records('${1:table}', \$${2:conditions})$0]]></content>
+    <tabTrigger>count_records</tabTrigger>
+    <scope>source.php</scope>
+    <description>$DB->count_records()</description>
+</snippet>
