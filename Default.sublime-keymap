@@ -1,0 +1,10 @@
+[
+  // Extend line with - or #.
+  { "keys": ["enter"], "command": "insert_snippet", "args": {"contents": "\n${TM_CURRENT_LINE/^\\s*((?:#|-)+).*/$1 /}"},
+    "context": [
+      { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true },
+      { "key": "preceding_text",                     "operator": "regex_contains", "operand": "^(#|-)+\\s*",                          "match_all": true }
+    ]
+  }
+]

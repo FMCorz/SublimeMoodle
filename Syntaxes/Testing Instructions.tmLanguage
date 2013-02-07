@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>fileTypes</key>
+	<array>
+		<string>moodle-testing-instructions</string>
+	</array>
+	<key>name</key>
+	<string>Moodle Testing Instructions</string>
+	<key>scopeName</key>
+	<string>text.moodle-testing-instructions</string>
+	<key>uuid</key>
+	<string>2da07eab-d992-4c71-8e90-c12d355beebc</string>
+</dict>
+</plist>

@@ -1,7 +1,10 @@
 Moodle package for Sublime Text
 ===============================
 
-Sublime Text bundle to help with Moodle functions, classes and constants.
+Sublime Text bundle for Moodle.
+
+- Auto completion for functions, classes and constants.
+- Helper to write testing instructions (Command palette > Moodle: Write testing instructions)
 
 Installation
 ------------

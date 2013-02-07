@@ -1,0 +1,8 @@
+{
+    "scope": "text.moodle-testing-instructions",
+    "completions":
+    [
+        { "trigger": "make", "contents": "*make sure*" },
+        { "trigger": "Make", "contents": "*Make sure*" }
+    ]
+}
