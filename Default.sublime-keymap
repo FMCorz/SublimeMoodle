@@ -6,5 +6,41 @@
       { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true },
       { "key": "preceding_text",                     "operator": "regex_contains", "operand": "^(#|-)+\\s*",                          "match_all": true }
     ]
+  },
+  { "keys": ["enter"], "command": "moodle_testing_ident", "args": { "mode": "after" },
+    "context": [
+      { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true },
+      { "key": "preceding_text",                     "operator": "regex_contains", "operand": "^(#|-)+\\s*$",                         "match_all": true }
+    ]
+  },
+  // Indent.
+  { "keys": ["tab"], "command": "moodle_testing_ident", "args": { "mode": "ident" },
+    "context": [
+      { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true }
+      // { "key": "preceding_text",                     "operator": "regex_match",    "operand": "^(#|-)+\\s*$",                         "match_all": true }
+    ]
+  },
+  // Indent.
+  { "keys": ["shift+tab"], "command": "moodle_testing_ident", "args": { "mode": "unident" },
+    "context": [
+      { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true }
+    ]
+  },
+  // Autoclosing *.
+  { "keys": ["*"], "command": "insert_snippet", "args": {"contents": "*$0*"},
+    "context": [
+      { "key": "selector",         "operator": "equal",           "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "following_text",   "operator": "not_regex_match", "operand": "^\\*",                                 "match_all": true }
+    ]
+  },
+  // Autoclosing _.
+  { "keys": ["_"], "command": "insert_snippet", "args": {"contents": "_$0_"},
+    "context": [
+      { "key": "selector",         "operator": "equal",           "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "following_text",   "operator": "not_regex_match", "operand": "^\\_",                                 "match_all": true }
+    ]
   }
 ]
