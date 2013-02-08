@@ -1,6 +1,18 @@
 [
+    // Testing instructions.
     {
         "caption": "Moodle: Write testing instructions",
         "command": "moodle_write_testing_instructions"
+    },
+
+    // Open tracker issue.
+    {
+        "caption": "Moodle: Open a tracker issue",
+        "command": "moodle_open_tracker_issue",
+        "args": { "prompt": true }
+    },
+    {
+        "caption": "Moodle: Resolve and open tracker issue",
+        "command": "moodle_open_tracker_issue"
     }
 ]
