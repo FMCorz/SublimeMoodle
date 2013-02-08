@@ -4,7 +4,7 @@
 """
 Moodle bundle for Sublime Text
 
-Copyright (c) 2012 Frédéric Massart - FMCorz.net
+Copyright (c) 2013 Frédéric Massart - FMCorz.net
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -25,45 +25,9 @@ http://github.com/FMCorz/SublimeMoodle
 import sublime
 import sublime_plugin
 import re
-import os
 
 
-class MoodleWriteTestingInstructionsCommand(sublime_plugin.WindowCommand):
-
-    _syntax = "Syntaxes/Testing Instructions.tmLanguage"
-    _template = """*Test pre-requisites*
-
-- CURSOR
-
-*Test steps*
-
-# 
-"""
-
-    def run(self):
-        view = self.window.new_file()
-        edit = view.begin_edit()
-
-        here = os.path.dirname(os.path.realpath(__file__))
-        syntax = os.path.join(here, self._syntax)
-        if os.path.isfile(syntax):
-            view.set_syntax_file(syntax)
-
-        view.insert(edit, 0, self._template)
-        region = view.find(r'CURSOR', 0)
-        view.erase(edit, region)
-        view.sel().clear()
-        view.sel().add(sublime.Region(region.begin()))
-        view.end_edit(edit)
-
-    def description(self):
-        return
-        """
-        Opens a new window with a template for writing testing instructions.
-        """.strip()
-
-
-class MoodleTestingIdent(sublime_plugin.TextCommand):
+class JiraIdentCommand(sublime_plugin.TextCommand):
 
     def run(self, edit, mode='after', key='-'):
         for region in self.view.sel():
@@ -85,7 +49,9 @@ class MoodleTestingIdent(sublime_plugin.TextCommand):
                     # Empty lines would create a selection, insert prevents that.
                     self.view.insert(edit, line.begin(), key + ' ')
                 else:
-                    self.view.replace(edit, line, lineContent + key + ' ')
+                    replace = self.view.find(r'^(#|-)* ?', line.begin())
+                    if replace:
+                        self.view.replace(edit, replace, self.view.substr(replace).strip() + key + ' ')
 
             elif mode == 'ident' or mode == 'unident':
                 regions = self.view.lines(region)
@@ -102,4 +68,3 @@ class MoodleTestingIdent(sublime_plugin.TextCommand):
                             self.view.erase(edit, sublime.Region(line.begin(), line.begin() + 1))
                             while re.match(r' ', self.view.substr(line.begin())):
                                 self.view.erase(edit, sublime.Region(line.begin(), line.begin() + 1))
-

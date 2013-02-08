@@ -4,12 +4,12 @@
 <dict>
 	<key>fileTypes</key>
 	<array>
-		<string>moodle-testing-instructions</string>
+		<string>jira</string>
 	</array>
 	<key>name</key>
-	<string>Moodle Testing Instructions</string>
+	<string>Jira</string>
 	<key>scopeName</key>
-	<string>text.moodle-testing-instructions</string>
+	<string>text.jira</string>
 	<key>uuid</key>
 	<string>2da07eab-d992-4c71-8e90-c12d355beebc</string>
 </dict>
