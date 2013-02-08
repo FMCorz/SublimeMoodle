@@ -65,7 +65,7 @@ class MoodleWriteTestingInstructionsCommand(sublime_plugin.WindowCommand):
 
 class MoodleTestingIdent(sublime_plugin.TextCommand):
 
-    def run(self, edit, mode='after'):
+    def run(self, edit, mode='after', key='-'):
         for region in self.view.sel():
             if mode == 'after':
                 line = self.view.line(region)
@@ -73,11 +73,16 @@ class MoodleTestingIdent(sublime_plugin.TextCommand):
                 ident = re.match(r'((#|-)+)\s*$', lineContent)
                 if ident != None:
                     chars = ident.group(1)
-                    print chars
                     if len(chars) > 1:
                         self.view.replace(edit, line, chars[:-1] + ' ')
                     else:
                         self.view.replace(edit, line, '\n')
+
+            elif mode == 'extend':
+                line = self.view.line(region)
+                lineContent = self.view.substr(line).strip()
+                lineContent += key + ' '
+                self.view.replace(edit, line, lineContent)
 
             elif mode == 'ident' or mode == 'unident':
                 regions = self.view.lines(region)

@@ -1,4 +1,19 @@
 [
+  // Begin or extend identation followed by a space.
+  { "keys": ["-"], "command": "moodle_testing_ident", "args": {"mode": "extend", "key": "-"},
+    "context": [
+      { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true },
+      { "key": "preceding_text",                     "operator": "regex_match",    "operand": "^(#|-)* ?$",                             "match_all": true }
+    ]
+  },
+  { "keys": ["#"], "command": "moodle_testing_ident", "args": {"mode": "extend", "key": "#"},
+    "context": [
+      { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true },
+      { "key": "preceding_text",                     "operator": "regex_match",    "operand": "^(#|-)* ?$",                             "match_all": true }
+    ]
+  },
   // Extend line with - or #.
   { "keys": ["enter"], "command": "insert_snippet", "args": {"contents": "\n${TM_CURRENT_LINE/^\\s*((?:#|-)+).*/$1 /}"},
     "context": [
@@ -7,6 +22,7 @@
       { "key": "preceding_text",                     "operator": "regex_contains", "operand": "^(#|-)+\\s*",                          "match_all": true }
     ]
   },
+  // Behaviour when exiting an empty identation.
   { "keys": ["enter"], "command": "moodle_testing_ident", "args": { "mode": "after" },
     "context": [
       { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
@@ -14,15 +30,15 @@
       { "key": "preceding_text",                     "operator": "regex_contains", "operand": "^(#|-)+\\s*$",                         "match_all": true }
     ]
   },
-  // Indent.
+  // Ident multiple lines at once.
   { "keys": ["tab"], "command": "moodle_testing_ident", "args": { "mode": "ident" },
     "context": [
       { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
-      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true }
-      // { "key": "preceding_text",                     "operator": "regex_match",    "operand": "^(#|-)+\\s*$",                         "match_all": true }
+      { "key": "auto_complete_visible",              "operator": "equal",          "operand": false,                                  "match_all": true },
+      { "key": "selection_empty",                    "operator": "equal",          "operand": false,                                  "match_all": true }
     ]
   },
-  // Indent.
+  // Unident files.
   { "keys": ["shift+tab"], "command": "moodle_testing_ident", "args": { "mode": "unident" },
     "context": [
       { "key": "selector",                           "operator": "equal",          "operand": "text.moodle-testing-instructions",     "match_all": true },
