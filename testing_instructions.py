@@ -22,13 +22,15 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 http://github.com/FMCorz/SublimeMoodle
 """
 
-import re
 import sublime
 import sublime_plugin
+import re
+import os
 
 
 class MoodleWriteTestingInstructionsCommand(sublime_plugin.WindowCommand):
 
+    _syntax = "Syntaxes/Testing Instructions.tmLanguage"
     _template = """*Test pre-requisites*
 
 - CURSOR
@@ -41,7 +43,12 @@ class MoodleWriteTestingInstructionsCommand(sublime_plugin.WindowCommand):
     def run(self):
         view = self.window.new_file()
         edit = view.begin_edit()
-        view.set_syntax_file('Syntaxes/Testing Instructions.tmLanguage')
+
+        here = os.path.dirname(os.path.realpath(__file__))
+        syntax = os.path.join(here, self._syntax)
+        if os.path.isfile(syntax):
+            view.set_syntax_file(syntax)
+
         view.insert(edit, 0, self._template)
         region = view.find(r'CURSOR', 0)
         view.erase(edit, region)
