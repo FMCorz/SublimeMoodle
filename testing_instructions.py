@@ -81,8 +81,11 @@ class MoodleTestingIdent(sublime_plugin.TextCommand):
             elif mode == 'extend':
                 line = self.view.line(region)
                 lineContent = self.view.substr(line).strip()
-                lineContent += key + ' '
-                self.view.replace(edit, line, lineContent)
+                if lineContent == '':
+                    # Empty lines would create a selection, insert prevents that.
+                    self.view.insert(edit, line.begin(), key + ' ')
+                else:
+                    self.view.replace(edit, line, lineContent + key + ' ')
 
             elif mode == 'ident' or mode == 'unident':
                 regions = self.view.lines(region)
@@ -93,7 +96,6 @@ class MoodleTestingIdent(sublime_plugin.TextCommand):
                         if re.match(r'[#-]', self.view.substr(line.begin())):
                             char = '-'
                         self.view.insert(edit, line.begin(), char)
-                        print char
 
                     elif mode == 'unident':
                         if re.match(r'[#-]', self.view.substr(line.begin())):
