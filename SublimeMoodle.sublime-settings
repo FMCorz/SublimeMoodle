@@ -1,0 +1,3 @@
+{
+    "testing_instructions_snippet" : "${1:*Test pre-requisites*\n\n- ${2:Moodle}\n\n}*Test steps*\n\n# $3$0"
+}
