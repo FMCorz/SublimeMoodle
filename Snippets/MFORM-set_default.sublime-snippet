@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[\$mform->setDefault('${1:elementname}', ${2:defaultvalue})$0]]></content>
+    <tabTrigger>setDefault</tabTrigger>
+    <scope>source.php</scope>
+    <description>$mform->setDefault()</description>
+</snippet>

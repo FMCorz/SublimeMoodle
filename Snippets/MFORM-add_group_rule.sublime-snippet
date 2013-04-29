@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[\$mform->addGroupRule('${1:groupname}', ${2:message}${3:, ${4:type}${5:, ${6:format}${7:, ${8:howmany}${9:, '${10:server}'${11:, ${12:reset}}}}}})$0]]></content>
+    <tabTrigger>addGroupRule</tabTrigger>
+    <scope>source.php</scope>
+    <description>$mform->addGroupRule()</description>
+</snippet>

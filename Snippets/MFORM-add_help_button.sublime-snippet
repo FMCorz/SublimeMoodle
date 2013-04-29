@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[\$mform->addHelpButton('${1:elementname}', '${2:identifier}'${3:, '${4:component}'${5:, ${6:linktext}${7:, ${8:suppresscheck}}}})$0]]></content>
+    <tabTrigger>addHelpButton</tabTrigger>
+    <scope>source.php</scope>
+    <description>$mform->addHelpButton()</description>
+</snippet>
