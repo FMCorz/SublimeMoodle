@@ -14,5 +14,12 @@
     {
         "caption": "Moodle: Resolve and open tracker issue",
         "command": "moodle_open_tracker_issue"
+    },
+
+    // Reveal the file on Github.
+    {
+        "caption": "Moodle: Reveal this file on Github",
+        "command": "moodle_reveal_on_github",
+        "args": { "account": "moodle" }
     }
 ]
