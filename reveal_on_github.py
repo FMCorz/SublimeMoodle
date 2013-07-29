@@ -34,7 +34,7 @@ class MoodleRevealOnGithub(sublime_plugin.TextCommand):
     defaultaccount = 'moodle'
 
     def run(self, edit, account=None):
-        fn = self.view.file_name()
+        fn = os.path.abspath(os.path.realpath(os.path.expanduser(self.view.file_name())))
         regions = self.view.sel()
         if len(regions) > 1:
             return
