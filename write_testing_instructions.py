@@ -36,8 +36,7 @@ class MoodleWriteTestingInstructionsCommand(sublime_plugin.WindowCommand):
     def run(self):
         view = self.window.new_file()
 
-        here = os.path.dirname(os.path.realpath(__file__))
-        syntax = os.path.join(here, self._syntax)
+        syntax = os.path.join(sublime.packages_path(), 'SublimeMoodle', self._syntax)
         if os.path.isfile(syntax):
             view.set_syntax_file(syntax)
 
