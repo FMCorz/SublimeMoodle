@@ -1,4 +1,10 @@
 [
+    // New file.
+    {
+        "caption": "Moodle: New file",
+        "command": "moodle_new_file"
+    },
+
     // Testing instructions.
     {
         "caption": "Moodle: Write testing instructions",
