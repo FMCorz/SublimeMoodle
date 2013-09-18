@@ -5,6 +5,12 @@
         "command": "moodle_new_file"
     },
 
+    // New event file.
+    {
+        "caption": "Moodle: New event file",
+        "command": "moodle_new_event_file"
+    },
+
     // Testing instructions.
     {
         "caption": "Moodle: Write testing instructions",
