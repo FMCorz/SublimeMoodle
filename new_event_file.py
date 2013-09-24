@@ -68,7 +68,7 @@ class MoodleNewEventFileCommand(sublime_plugin.WindowCommand):
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
-namespace \${1:the_component}\\event;
+namespace ${1:the_component}\\event;
 defined('MOODLE_INTERNAL') || die();
 
 /**
@@ -113,7 +113,7 @@ class ${2:thing_happened} extends \\core\\event\\base {
      *
      * @return array|null
      */
-    // public function get_legacy_logdata() {
+    // protected function get_legacy_logdata() {
     //     return array();
     // }
 
@@ -127,7 +127,7 @@ class ${2:thing_happened} extends \\core\\event\\base {
     }
 
     /**
-     * Get URL related to the action
+     * Get URL related to the action.
      *
      * @return \\moodle_url
      */
@@ -154,7 +154,7 @@ class ${2:thing_happened} extends \\core\\event\\base {
      */
     // protected function validate_data() {
     //     if (!isset(\$this->other['XXXXX'])) {
-    //        throw new \\coding_exception('The XXXXX need to be set in \$other.');
+    //        throw new \\coding_exception('The key \\'XXXXX\\' needs to be set in \$other.');
     //     }
     // }
 
