@@ -26,21 +26,22 @@ import sublime
 import sublime_plugin
 import os
 
-settings = sublime.load_settings('SublimeMoodle.sublime-settings')
-
 
 class MoodleWriteTestingInstructionsCommand(sublime_plugin.WindowCommand):
 
     _syntax = 'Jira.tmLanguage'
 
+    @property
+    def settings(self):
+        return sublime.load_settings('SublimeMoodle.sublime-settings')
+
     def run(self):
         view = self.window.new_file()
 
-        syntax = os.path.join(sublime.packages_path(), 'SublimeMoodle', self._syntax)
-        if os.path.isfile(syntax):
-            view.set_syntax_file(syntax)
+        syntax = 'Packages/SublimeMoodle/%s' % (self._syntax)
+        view.set_syntax_file(syntax)
 
-        view.run_command('insert_snippet', {"contents": settings.get('testing_instructions_snippet')})
+        view.run_command('insert_snippet', {"contents": self.settings.get('testing_instructions_snippet')})
 
     def description(self):
         return
