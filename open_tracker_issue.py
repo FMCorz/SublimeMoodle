@@ -26,7 +26,7 @@ import sublime
 import sublime_plugin
 import re
 import webbrowser
-from tools import process
+from .tools import process
 
 
 class MoodleOpenTrackerIssueCommand(sublime_plugin.WindowCommand):
