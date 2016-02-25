@@ -113,6 +113,8 @@
         "RISK_SPAM",
         "RISK_XSS",
         "SITEID",
+        "SQL_PARAMS_NAMED",
+        "SQL_PARAMS_QM",
         "WEEKSECS",
         "YEARSECS"
     ]
