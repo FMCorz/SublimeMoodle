@@ -1,0 +1,6 @@
+<snippet>
+    <content><![CDATA[list(\$${1:insql}, \$${2:inparams}) = \$DB->get_in_or_equal(\$${3:items}${4:, ${5:SQL_PARAMS_NAMED}${6:, '${7:param}'${8:, ${9:true}}}});$0]]></content>
+    <tabTrigger>get_in_or_equal</tabTrigger>
+    <scope>source.php</scope>
+    <description>list() = $DB->get_in_or_equal()</description>
+</snippet>
